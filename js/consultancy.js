@@ -198,7 +198,6 @@ if (mobileMenuOverlay) {
 /* ─────────────────────────────────────────────
    3. RTT CONTACT FORM — open mailto on submit
    ───────────────────────────────────────────── */
-
 const rttSubmit = document.getElementById('rttSubmit');
 if (rttSubmit) {
   rttSubmit.addEventListener('click', () => {
