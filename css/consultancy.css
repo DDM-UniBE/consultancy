@@ -470,21 +470,6 @@
   line-height: 1.65;
   margin-bottom: 24px;
 }
-.rtt-email {
-  width: 100%;
-  border: 1px solid #d8d8d4;
-  padding: 14px 16px;
-  font-size: 16px;
-  font-family: inherit;
-  color: #1a1a1a;
-  outline: none;
-  margin-bottom: 16px;
-  background: white;
-  letter-spacing: 0.005em;
-  border-radius: 0;
-}
-.rtt-email:focus { border-color: #C8102E; }
-.rtt-email::placeholder { color: #aaa; }
 .rtt-submit {
   background: #C8102E;
   color: white;

@@ -203,10 +203,9 @@ const rttSubmit = document.getElementById('rttSubmit');
 if (rttSubmit) {
   rttSubmit.addEventListener('click', () => {
     const industry = document.getElementById('rttIndustry').value;
-    const email    = document.getElementById('rttEmail').value;
     const subject  = encodeURIComponent(`Consultancy enquiry${industry ? ' — ' + industry : ''}`);
     const body     = encodeURIComponent(
-      `Hello,\n\nI'd like to talk to your experts about: ${industry || '[area]'}\n\nMy email: ${email || '[your email]'}\n\nKind regards,`
+      `Hello,\n\nI'd like to talk to your experts about: ${industry || '[area]'}\n\nKind regards,`
     );
     window.location.href = `mailto:info.ddm@unibe.ch?subject=${subject}&body=${body}`;
   });
