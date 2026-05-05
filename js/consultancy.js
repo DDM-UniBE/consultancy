@@ -2,10 +2,10 @@
    DDM Consultancy Service — Page Logic
 
    Modules:
-     1. Matchmaker        — two-question wizard with rule-based result
-     2. Mobile UI         — breadcrumb + slide-up menu (from template)
-     3. Browse carousel   — services carousel prev/next
-     4. RTT form          — opens mailto on submit
+     1. Matchmaker   — two-question wizard with rule-based result
+     2. Mobile UI    — breadcrumb + slide-up menu (from template)
+     3. Browse bar   — dropdown for all consultancy services
+     4. RTT form     — opens mailto on submit
    ═══════════════════════════════════════════════════ */
 
 
@@ -197,75 +197,20 @@ if (mobileMenuOverlay) {
 
 
 /* ─────────────────────────────────────────────
-   3. BROWSE SERVICES CAROUSEL — prev/next buttons
-   Custom eased animation: cards visibly slide with an
-   ease-out-cubic curve over ~600ms, instead of the
-   browser's default snap.
+   3. BROWSE BAR — dropdown for all services
+   When a specialty is picked, navigate to its page.
+   For now slugs are placeholders (services/<slug>.html).
    ───────────────────────────────────────────── */
 (function () {
-  const track = document.getElementById('browseTrack');
-  if (!track) return;
-  const prev  = document.getElementById('browsePrev');
-  const next  = document.getElementById('browseNext');
-
-  function step() {
-    const first = track.firstElementChild;
-    if (!first) return 0;
-    return first.getBoundingClientRect().width + 18;
-  }
-  function update() {
-    if (!prev || !next) return;
-    prev.disabled = track.scrollLeft <= 4;
-    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
-  }
-
-  // Eased scroll using requestAnimationFrame.
-  // We temporarily disable scroll-snap so the smooth animation
-  // isn't yanked into place by the browser mid-flight.
-  let animating = false;
-  function animateScroll(targetLeft, duration) {
-    if (animating) return;
-    animating = true;
-
-    const start = track.scrollLeft;
-    const distance = targetLeft - start;
-    const startTime = performance.now();
-
-    const prevSnap = track.style.scrollSnapType;
-    track.style.scrollSnapType = 'none';
-
-    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
-
-    function tick(now) {
-      const elapsed = now - startTime;
-      const t = Math.min(elapsed / duration, 1);
-      track.scrollLeft = start + distance * easeOutCubic(t);
-      if (t < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        // Restore snap so manual swipes still snap into place
-        track.style.scrollSnapType = prevSnap || '';
-        animating = false;
-        update();
-      }
-    }
-    requestAnimationFrame(tick);
-  }
-
-  function clamp(v) {
-    return Math.max(0, Math.min(v, track.scrollWidth - track.clientWidth));
-  }
-
-  if (prev) prev.addEventListener('click', () => {
-    animateScroll(clamp(track.scrollLeft - step()), 600);
+  const sel = document.getElementById('browseSelect');
+  if (!sel) return;
+  sel.addEventListener('change', () => {
+    const slug = sel.value;
+    if (!slug) return;
+    // TODO: when service pages exist, point this at services/<slug>.html
+    // For now, no-op so users see the selection but stay on the page.
+    console.log('Browse selected:', slug);
   });
-  if (next) next.addEventListener('click', () => {
-    animateScroll(clamp(track.scrollLeft + step()), 600);
-  });
-
-  track.addEventListener('scroll', update);
-  window.addEventListener('resize', update);
-  update();
 })();
 
 

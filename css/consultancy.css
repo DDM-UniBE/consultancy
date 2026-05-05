@@ -311,8 +311,8 @@
 
 .objectives-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
   padding: 0 4px;
 }
 
@@ -325,7 +325,8 @@
   color: inherit;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
   position: relative;
-  min-height: 260px;
+  min-height: 320px;
+  overflow: hidden;
 }
 .obj-card:hover {
   border-color: #C8102E;
@@ -333,194 +334,54 @@
   transform: translateY(-2px);
 }
 .obj-body {
-  padding: 28px 26px 28px;
+  padding: 36px 32px 32px;
   display: flex;
   flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
 }
 .obj-body h3 {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 18px;
+  margin-bottom: 0;
   letter-spacing: -0.005em;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 .obj-body p {
-  font-size: 14px;
+  font-size: 15px;
   color: #555;
-  line-height: 1.55;
+  line-height: 1.6;
   letter-spacing: 0.005em;
-}
 
-
-/* ═══════════════════════════════════════════════════
-   BROWSE CONSULTANCY SERVICES — red band + specialty cards
-   ═══════════════════════════════════════════════════ */
-.browse-section {
-  background: #C8102E;
-  color: white;
-  padding: 72px 0 80px;
-}
-.browse-head {
-  max-width: 760px;
-  margin: 0 auto 48px;
-  text-align: center;
-}
-.browse-title {
-  font-size: 36px;
-  font-weight: 300;
-  color: white;
-  line-height: 1.2;
-  letter-spacing: 0.005em;
-  margin-bottom: 14px;
-}
-.browse-lead {
-  font-size: 17px;
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.5;
-}
-
-.browse-grid {
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 4px;
-  margin-bottom: 32px;
-  scrollbar-width: none;
-}
-.browse-grid::-webkit-scrollbar { display: none; }
-
-.browse-card {
-  flex: 0 0 calc((100% - 54px) / 4);    /* 4 cards visible (3 gaps × 18px) */
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.browse-nav {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-.browse-arrow {
-  width: 48px;
-  height: 48px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-  font-family: inherit;
-  display: grid;
-  place-items: center;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-.browse-arrow:hover {
-  background: white;
-  border-color: white;
-  color: #C8102E;
-}
-.browse-arrow:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-.browse-arrow:disabled:hover {
-  background: transparent;
-  color: white;
-  border-color: rgba(255, 255, 255, 0.5);
-}
-.browse-card.is-active:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-}
-.browse-card.is-soon {
-  cursor: default;
-  opacity: 0.85;
-}
-.browse-card-img {
-  position: relative;
-  aspect-ratio: 4 / 3;
+  /* Hidden at rest — shown on hover/focus */
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   overflow: hidden;
-  background: #ddd;
+  transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.3s ease;
 }
-.browse-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease, filter 0.3s ease;
+.obj-card:hover .obj-body p,
+.obj-card:focus .obj-body p,
+.obj-card:focus-within .obj-body p {
+  max-height: 240px;
+  opacity: 1;
+  margin-top: 18px;
 }
-.browse-card.is-active:hover .browse-card-img img {
-  transform: scale(1.04);
-}
-.browse-card.is-soon .browse-card-img img {
-  filter: grayscale(0.4);
-}
-.browse-card.is-soon .browse-card-img::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.25);
-}
-.browse-tag {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  z-index: 2;
-}
-.browse-tag-ready { background: #C8102E; color: white; }
-.browse-tag-soon  { background: white; color: #888; border: 1px solid #d8d8d4; }
 
-.browse-card-body {
-  padding: 20px 22px 22px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.browse-card-eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #C8102E;
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-.browse-card.is-soon .browse-card-eyebrow {
-  color: #888;
-}
-.browse-card-body h3 {
-  font-size: 17px;
-  font-weight: 700;
-  color: #1a1a1a;
-  line-height: 1.3;
-  letter-spacing: -0.005em;
-  margin-bottom: 14px;
-  flex-grow: 1;
-}
-.browse-card.is-soon .browse-card-body h3 {
-  color: #555;
-  font-weight: 600;
-}
-.browse-card-link {
-  font-size: 13px;
+.obj-link {
+  font-size: 14px;
   font-weight: 700;
   color: #C8102E;
   letter-spacing: 0.005em;
+  align-self: flex-start;
+  margin-top: 24px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
 }
-.browse-card.is-active:hover .browse-card-link {
+.obj-card:hover .obj-link {
+  opacity: 1;
   text-decoration: underline;
 }
 
@@ -663,10 +524,7 @@
    ═══════════════════════════════════════════════════ */
 @media (max-width: 1100px) {
   .matcher-content { padding: 44px 36px; }
-  /* Pillars compress to 3 columns on narrow desktop (2 wrap to row 2) */
-  .objectives-grid { grid-template-columns: repeat(3, 1fr); }
-  /* Browse cards: 3 visible at once */
-  .browse-card { flex: 0 0 calc((100% - 36px) / 3); }
+  .objectives-grid { gap: 14px; }
 }
 
 @media (max-width: 900px) {
@@ -683,18 +541,19 @@
   .objectives-section { padding: 8px 0 32px; }
   .objectives-band { padding: 48px 4px 56px; max-width: none; }
   .objectives-title { font-size: 28px; }
-  .objectives-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .objectives-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .obj-card { min-height: 0; }
   .obj-body { padding: 28px 24px 26px; }
-  .obj-body h3 { font-size: 18px; margin-bottom: 12px; }
-  .obj-body p { font-size: 14px; }
-  /* Browse services: 2 cards visible on tablet */
-  .browse-section { padding: 56px 0 64px; }
-  .browse-title { font-size: 28px; }
-  .browse-lead { font-size: 16px; }
-  .browse-card { flex: 0 0 calc((100% - 14px) / 2); }
-  .browse-grid { gap: 14px; }
-  .browse-head { margin-bottom: 36px; }
+  .obj-body h3 { font-size: 20px; margin-bottom: 16px; }
+  /* On touch / no-hover: show the description always */
+  .obj-body p {
+    max-height: 240px;
+    opacity: 1;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+  .obj-link { margin-top: 18px; opacity: 1; }
   .expect-grid { grid-template-columns: 1fr; gap: 24px; }
   .expect-head h2 { font-size: 24px; }
   .ready-to-talk { grid-template-columns: 1fr; }
@@ -742,15 +601,12 @@
   }
   .objectives-grid::-webkit-scrollbar { display: none; }
 
-  .obj-card,
-  .obj-card.obj-4,
-  .obj-card.obj-5 {
+  .obj-card {
     flex: 0 0 78%;             /* one card visible, peek of next */
     max-width: 320px;
     min-width: 240px;
     min-height: 0;
     scroll-snap-align: start;
-    grid-column: auto;          /* clear desktop span values */
   }
   .obj-body { padding: 24px 22px 26px; }
   .obj-body h3 { font-size: 20px; margin-bottom: 14px; }
@@ -778,14 +634,5 @@
   .rtt-label { font-size: 17px; }
   .rtt-select { font-size: 17px; }
 
-  /* Browse services: 1 card visible on mobile, swipe instead of arrows */
-  .browse-section { padding: 40px 0 48px; }
-  .browse-title { font-size: 22px; }
-  .browse-lead { font-size: 15px; }
-  .browse-card { flex: 0 0 80%; }
-  .browse-grid { gap: 14px; margin-bottom: 24px; }
-  .browse-head { margin-bottom: 28px; }
-  .browse-card-body h3 { font-size: 16px; }
-  .browse-nav { display: none; }
 
 }
