@@ -8,6 +8,7 @@
 /* ── INTRO BLOCK (replaces the red search hero) ── */
 .intro-wrap {
   background: white;
+  padding-top: 48px;
   padding-bottom: 40px;
 }
 .intro-block {
@@ -15,7 +16,7 @@
   max-width: 900px;
 }
 .intro-title {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 300;
   color: #1a1a1a;
   letter-spacing: 0.01em;
@@ -531,7 +532,7 @@
 }
 
 @media (max-width: 640px) {
-  .intro-wrap { padding: 24px 0 32px; }
+  .intro-wrap { padding: 32px 0 32px; }
   .intro-title { font-size: 22px; }
   .intro-lead { font-size: 15px; }
   .matcher-section { padding-bottom: 36px; }
