@@ -94,7 +94,7 @@
   <!-- MATCHMAKER — two questions, image-left layout -->
   <section class="matcher-section" id="matcher">
     <div class="inner">
-      <div class="matcher-grid">
+      <div class="matcher-grid" id="matcherGrid">
 
         <!-- Image side -->
         <div class="matcher-image" id="matcherImage">
@@ -138,19 +138,18 @@
             <button class="match-back" id="matchBack">&larr; Back</button>
           </div>
 
-          <!-- STEP 3 — RESULT -->
-          <div class="match-step" data-step="3" style="display:none;">
-            <div class="match-result-summary">
-              You selected <strong id="resultIndustry">—</strong> and your need is <strong id="resultNeed">—</strong>.
-            </div>
-            <div class="match-result-card">
-              <div class="match-result-label">Recommended for you</div>
-              <h3 id="resultTitle">—</h3>
-              <p id="resultDesc">—</p>
-              <div class="match-result-actions">
-                <a href="#" class="match-result-link" id="resultLink">Read more &rsaquo;</a>
-                <button class="match-reset" id="matchReset">Reset</button>
+          <!-- STEP 3 — RESULT (full-width takeover, image hides) -->
+          <div class="match-step match-step-result" data-step="3" style="display:none;">
+            <div class="match-result-top">
+              <div class="match-result-summary">
+                You selected <strong id="resultIndustry">—</strong> as your organisation and <strong id="resultNeed">—</strong> as your current need.
               </div>
+              <button class="match-reset" id="matchReset">Reset</button>
+            </div>
+
+            <div class="match-result-label">Recommended for you</div>
+            <div class="match-result-grid" id="resultGrid">
+              <!-- recommendation cards injected by JS -->
             </div>
           </div>
 
@@ -164,7 +163,7 @@
     <div class="inner">
       <div class="objectives-band">
         <div class="objectives-head">
-          <h2 class="objectives-title">From early concept to clinical reality, we accompany you at every stage.</h2>
+          <h2 class="objectives-title">From early concept to clinical reality &mdash; we accompany you at every stage.</h2>
         </div>
 
         <div class="objectives-grid">

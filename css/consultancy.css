@@ -151,70 +151,126 @@
 }
 .match-back:hover { color: #C8102E; }
 
-/* Result */
+/* ═══════════════════════════════════════════════════
+   STEP 3 — RESULT TAKEOVER
+   Hides the image, expands content panel to full width,
+   shows a 3-card recommendation grid (Bain-style).
+   ═══════════════════════════════════════════════════ */
+
+/* When .matcher-grid has .is-result, collapse the image column */
+.matcher-grid.is-result {
+  grid-template-columns: 1fr;
+}
+.matcher-grid.is-result .matcher-image {
+  display: none;
+}
+.matcher-grid.is-result .matcher-content {
+  padding: 56px 64px;
+  min-height: 0;
+}
+/* On Step 3 we also hide the title/sub at the top of the questions column,
+   because the result has its own summary line. */
+.matcher-grid.is-result .matcher-title,
+.matcher-grid.is-result .matcher-sub {
+  display: none;
+}
+
+/* Result top row — summary on the left, Reset button on the right */
+.match-result-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 56px;
+}
 .match-result-summary {
-  font-size: 23px;
+  font-size: 30px;
   font-weight: 300;
   color: #1a1a1a;
-  margin-bottom: 22px;
-  line-height: 1.4;
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+  max-width: 70ch;
 }
 .match-result-summary strong {
   font-weight: 600;
   color: #1a1a1a;
 }
-.match-result-card {
-  border-top: 2px solid #C8102E;
-  padding-top: 20px;
-}
-.match-result-label {
-  font-size: 14px;
+
+/* Reset button moves to the top right, outlined, uppercase like a Bain button */
+.match-grid.is-result .match-reset,
+.match-result-top .match-reset {
+  flex-shrink: 0;
+  background: white;
+  border: 1px solid #d8d8d4;
+  padding: 12px 28px;
+  font-size: 13px;
   font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 12px;
+  color: #C8102E;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.match-result-top .match-reset:hover {
+  border-color: #C8102E;
+  background: #C8102E;
+  color: white;
+}
+
+/* "Recommended for you" label */
+.match-result-label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 20px;
+  letter-spacing: 0.005em;
+}
+
+/* 3-card grid */
+.match-result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.match-result-card {
+  background: white;
+  border: 1px solid #e0dfdb;
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
+}
+.match-result-card:hover {
+  border-color: #C8102E;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
 }
 .match-result-card h3 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   color: #1a1a1a;
-  margin-bottom: 10px;
-  line-height: 1.3;
+  margin-bottom: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.005em;
 }
 .match-result-card p {
-  font-size: 17px;
+  font-size: 15px;
   color: #555;
   line-height: 1.6;
-  margin-bottom: 22px;
-  max-width: 60ch;
-}
-.match-result-actions {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
+  margin-bottom: 24px;
+  flex-grow: 1;
 }
 .match-result-link {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: #C8102E;
   text-decoration: none;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
+  align-self: flex-start;
 }
 .match-result-link:hover { text-decoration: underline; }
-.match-reset {
-  background: none;
-  border: 1px solid #d8d8d4;
-  padding: 9px 18px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #777;
-  font-family: inherit;
-  cursor: pointer;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: border-color 0.15s, color 0.15s;
-}
-.match-reset:hover { border-color: #C8102E; color: #C8102E; }
 
 
 /* ═══════════════════════════════════════════════════
@@ -458,6 +514,10 @@
   .matcher-image { height: 320px; }
   .matcher-content { min-height: 0; padding: 36px 28px; }
   .matcher-title { font-size: 24px; }
+  .matcher-grid.is-result .matcher-content { padding: 36px 28px; }
+  .match-result-top { flex-direction: column; gap: 20px; margin-bottom: 36px; }
+  .match-result-summary { font-size: 22px; }
+  .match-result-grid { grid-template-columns: 1fr 1fr; }
   .objectives-section { padding: 8px 0 32px; }
   .objectives-band { padding: 48px 4px 56px; }
   .objectives-title { font-size: 28px; }
@@ -481,6 +541,10 @@
   .matcher-sub { font-size: 14px; margin-bottom: 24px; }
   .match-question-row strong { font-size: 17px; }
   .chip { font-size: 13px; padding: 9px 16px; }
+  .match-result-summary { font-size: 19px; }
+  .match-result-grid { grid-template-columns: 1fr; }
+  .match-result-card { min-height: 0; padding: 24px 22px; }
+  .match-result-card h3 { font-size: 19px; }
   .objectives-section { padding: 0 0 24px; }
   .objectives-band { padding: 32px 4px 40px; }
   .objectives-eyebrow { font-size: 12px; }
@@ -495,6 +559,4 @@
   .rtt-left h2 { font-size: 22px; }
   .rtt-label { font-size: 17px; }
   .rtt-select { font-size: 17px; }
-  .match-result-summary { font-size: 18px; }
-  .match-result-card h3 { font-size: 19px; }
 }
