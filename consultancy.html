@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultancy Service - Department of Digital Medicine</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/consultancy.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="inner">
+      <a href="https://www.unibe.ch" class="logo unibe-logo">
+        <img src="assets/logos/Logo UniBE_RGB_Multicolor.png" alt="Universität Bern" />
+      </a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB (desktop) -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="inner">
+      <a href="https://www.unibe.ch/facultiesinstitutes/index_eng.html" target="_blank" class="faculties">Faculties<br>&amp; Institutes</a>
+      <span class="arrow">&#9658;</span>
+      <a href="https://www.medizin.unibe.ch/index_eng.html" target="_blank" class="crumb">Faculty of Medicine</a>
+      <span class="arrow">&#9658;</span>
+      <a href="https://ddm.unibe.ch" target="_blank" class="current" style="text-decoration:none;">Department of Digital Medicine (DDM)</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB DROPDOWN (mobile only) -->
+  <div class="mobile-breadcrumb-dropdown">
+    <button class="mobile-breadcrumb-toggle" id="breadcrumbToggle" aria-expanded="false">
+      <span>Department of Digital Medicine (DDM)</span>
+      <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M0 0l5 6 5-6z"/></svg>
+    </button>
+    <div class="mobile-breadcrumb-panel" id="breadcrumbPanel">
+      <a href="https://www.unibe.ch/facultiesinstitutes/index_eng.html" target="_blank">Faculties &amp; Institutes</a>
+      <a href="https://www.medizin.unibe.ch/index_eng.html" target="_blank">Faculty of Medicine</a>
+    </div>
+  </div>
+
+  <!-- PAGE TITLE -->
+  <div class="page-title">
+    <div class="inner">
+      <h1>Department of Digital Medicine (DDM)</h1>
+    </div>
+  </div>
+
+  <!-- GREEN NAV -->
+  <div class="green-nav-wrap">
+    <div class="inner">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span>Menu</span>
+        <div class="hamburger-icon">
+          <span></span><span></span><span></span>
+        </div>
+      </button>
+      <nav class="green-nav" id="greenNav" aria-label="DDM navigation">
+        <a href="https://ddm.unibe.ch/index_eng.html" class="nav-home" title="Home">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 2L2 7v7h4v-4h4v4h4V7L8 2z" fill="white"/>
+          </svg>
+        </a>
+        <a href="https://ddm.unibe.ch/studies/index_eng.html">Studies</a>
+        <a href="https://ddm.unibe.ch/research/index_eng.html">Research</a>
+        <a href="https://ddm.unibe.ch/continuing_education/index_eng.html">Continuing Education</a>
+        <a href="https://ddm.unibe.ch/news__events/news/index_eng.html">News &amp; Events</a>
+        <a href="https://ddm.unibe.ch/about_us/index_eng.html">About us</a>
+        <a href="https://ddm.unibe.ch/become_a_member/index_eng.html">Become a Member</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Gap between green nav and hero -->
+  <div class="hero-spacer"></div>
+
+  <!-- INTRO BLOCK (replaces the red search hero — light, editorial) -->
+  <section class="intro-wrap">
+    <div class="inner">
+      <div class="intro-block">
+        <h2 class="intro-title">Digital Medicine Consultancy Service</h2>
+        <p class="intro-lead">
+          A structured advisory service that connects healthcare companies, medtech firms,
+          pharmaceutical organisations, digital health start-ups and public bodies
+          with the academic, clinical and technical expertise of the University of Bern.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATCHMAKER — two questions, image-left layout -->
+  <section class="matcher-section" id="matcher">
+    <div class="inner">
+      <div class="matcher-grid">
+
+        <!-- Image side -->
+        <div class="matcher-image" id="matcherImage">
+          <img src="assets/images/matcher.png" alt="Two people in conversation around a tablet" />
+        </div>
+
+        <!-- Questions side -->
+        <div class="matcher-content">
+          <h2 class="matcher-title">Let's match you with the right experts.</h2>
+          <p class="matcher-sub">Answer two questions and put our thinking to work on your needs.</p>
+
+          <!-- STEP 1 -->
+          <div class="match-step active" data-step="1">
+            <div class="match-question-row">
+              <strong>1. What kind of organisation are you?</strong>
+              <span class="match-progress">Question 1 of 2</span>
+            </div>
+            <div class="chips" data-group="industry">
+              <button class="chip" data-value="medtech">Medtech / device manufacturer</button>
+              <button class="chip" data-value="pharma">Pharmaceutical organisation</button>
+              <button class="chip" data-value="startup">Digital health start-up</button>
+              <button class="chip" data-value="public">Government / public body</button>
+              <button class="chip" data-value="hospital">Healthcare provider</button>
+              <button class="chip" data-value="other">Other</button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="match-step" data-step="2" style="display:none;">
+            <div class="match-question-row">
+              <strong>2. What do you need?</strong>
+              <span class="match-progress">Question 2 of 2</span>
+            </div>
+            <div class="chips" data-group="need">
+              <button class="chip" data-value="educate">Education on AI &amp; digital concepts</button>
+              <button class="chip" data-value="accelerate">Accelerate technology adoption</button>
+              <button class="chip" data-value="navigate">Navigate clinical, regulatory or ethical complexity</button>
+              <button class="chip" data-value="connect">Connect with academic &amp; clinical experts</button>
+              <button class="chip" data-value="generate">Generate research opportunities</button>
+            </div>
+            <button class="match-back" id="matchBack">&larr; Back</button>
+          </div>
+
+          <!-- STEP 3 — RESULT -->
+          <div class="match-step" data-step="3" style="display:none;">
+            <div class="match-result-summary">
+              You selected <strong id="resultIndustry">—</strong> and your need is <strong id="resultNeed">—</strong>.
+            </div>
+            <div class="match-result-card">
+              <div class="match-result-label">Recommended for you</div>
+              <h3 id="resultTitle">—</h3>
+              <p id="resultDesc">—</p>
+              <div class="match-result-actions">
+                <a href="#" class="match-result-link" id="resultLink">Read more &rsaquo;</a>
+                <button class="match-reset" id="matchReset">Reset</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE CAN HELP — five objective cards on dark band -->
+  <section class="objectives-section">
+    <div class="inner">
+      <div class="objectives-band">
+        <div class="objectives-head">
+          <div class="objectives-eyebrow">How we can help</div>
+          <h2 class="objectives-title">From early concept to clinical reality &mdash; we accompany you at every stage.</h2>
+        </div>
+
+        <div class="objectives-grid">
+
+        <article class="obj-card obj-1">
+          <div class="obj-image">
+            <img src="assets/images/pillars.png" alt="Streams of light representing connection and flow" />
+          </div>
+          <div class="obj-body">
+            <h3>Educate &rsaquo;</h3>
+            <p>Bringing your teams up to speed on AI and digital health concepts that are reshaping clinical practice.</p>
+          </div>
+        </article>
+
+        <article class="obj-card obj-2">
+          <div class="obj-image">
+            <img src="assets/images/pillars.png" alt="Streams of light representing connection and flow" />
+          </div>
+          <div class="obj-body">
+            <h3>Accelerate &rsaquo;</h3>
+            <p>Speeding up the adoption of safe, effective and evidence-based digital health technologies.</p>
+          </div>
+        </article>
+
+        <article class="obj-card obj-3">
+          <div class="obj-image">
+            <img src="assets/images/pillars.png" alt="Streams of light representing connection and flow" />
+          </div>
+          <div class="obj-body">
+            <h3>Navigate &rsaquo;</h3>
+            <p>Guiding you through clinical, regulatory, ethical and technical complexity with academic rigour.</p>
+          </div>
+        </article>
+
+        <article class="obj-card obj-4">
+          <div class="obj-image">
+            <img src="assets/images/pillars.png" alt="Streams of light representing connection and flow" />
+          </div>
+          <div class="obj-body">
+            <h3>Connect &rsaquo;</h3>
+            <p>Bridging academia, healthcare providers and industry to seed lasting collaborations.</p>
+          </div>
+        </article>
+
+        <article class="obj-card obj-5">
+          <div class="obj-image">
+            <img src="assets/images/pillars.png" alt="Streams of light representing connection and flow" />
+          </div>
+          <div class="obj-body">
+            <h3>Generate &rsaquo;</h3>
+            <p>Creating new research opportunities and revenue streams from successful collaborations.</p>
+          </div>
+        </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section class="expect-section">
+    <div class="inner">
+      <div class="expect-grid">
+        <div class="expect-head">
+          <h2>What to expect</h2>
+          <p>These sessions are designed as a lightweight entry point for companies seeking quick, high-level insights without committing to a full consultancy project.</p>
+        </div>
+        <ul class="expect-list">
+          <li>One-on-one discussions with clinicians, data scientists and digital medicine experts.</li>
+          <li>Rapid advisory sessions for strategic or technical questions.</li>
+          <li>Feedback on product concepts, algorithms or clinical use cases.</li>
+          <li>Independent expert opinion from an academic and hospital perspective.</li>
+          <li>Early-stage guidance for start-ups and innovation teams.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- READY TO TALK BANNER -->
+  <section class="ready-to-talk-wrap">
+    <div class="inner">
+      <div class="ready-to-talk">
+        <div class="rtt-left">
+          <h2>Ready to talk?</h2>
+          <label class="rtt-label" for="rttIndustry">I want to talk to your experts in:</label>
+          <div class="rtt-select-wrap">
+            <select id="rttIndustry" class="rtt-select">
+              <option value="">Select an area</option>
+              <option>Neuroradiology — AI integration</option>
+              <option>Radiology — Quality assessment</option>
+              <option>Cardiology — AI in cardiovascular medicine</option>
+              <option>Digital pathology</option>
+              <option>Radiation oncology</option>
+              <option>Expert consultation session</option>
+              <option>Other / not sure</option>
+            </select>
+          </div>
+        </div>
+        <div class="rtt-right">
+          <p>We work with ambitious partners who want to translate digital health innovation into real clinical outcomes. Together, we achieve evidence-based results.</p>
+          <input type="email" id="rttEmail" class="rtt-email" placeholder="Your email" />
+          <button class="rtt-submit" id="rttSubmit">Contact us</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="inner">
+      <a href="https://www.unibe.ch" class="logo footer-logo">
+        <img src="assets/logos/Logo UniBe_RGB_White.png" alt="Universität Bern" />
+      </a>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <div class="inner">
+      <span>© 2026 Universität Bern – Department of Digital Medicine</span>
+      <span>
+        &nbsp;&nbsp;
+        <a href="mailto:consultancy@ddm.unibe.ch">Contact</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM BAR -->
+  <div class="mobile-bottom-bar">
+    <button class="mobile-bar-menu" id="mobileMenuBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      Menu
+    </button>
+  </div>
+
+  <!-- SLIDE-UP MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+      <span>Menu</span>
+    </div>
+    <a href="https://ddm.unibe.ch/index_eng.html" class="home-link">
+      <svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M8 2L2 7v7h4v-4h4v4h4V7L8 2z"/></svg>
+      Homepage
+      <span class="arrow-right">›</span>
+    </a>
+    <a href="https://ddm.unibe.ch/studies/index_eng.html">Studies <span class="arrow-right">›</span></a>
+    <a href="https://ddm.unibe.ch/research/index_eng.html">Research <span class="arrow-right">›</span></a>
+    <a href="https://ddm.unibe.ch/continuing_education/index_eng.html">Continuing Education <span class="arrow-right">›</span></a>
+    <a href="https://ddm.unibe.ch/news__events/news/index_eng.html">News &amp; Events <span class="arrow-right">›</span></a>
+    <a href="https://ddm.unibe.ch/about_us/index_eng.html">About us <span class="arrow-right">›</span></a>
+    <a href="https://ddm.unibe.ch/become_a_member/index_eng.html">Become a Member <span class="arrow-right">›</span></a>
+  </div>
+
+  <!-- JS -->
+  <script src="js/consultancy.js"></script>
+
+</body>
+</html>
