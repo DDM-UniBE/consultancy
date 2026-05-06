@@ -470,9 +470,9 @@
   width: 100%;
   border: 0;
   border-bottom: 1px solid #C8102E;
-  padding: 12px 0 14px;
-  font-size: 21px;
-  font-weight: 600;
+  padding: 10px 0 12px;
+  font-size: 16px;
+  font-weight: 500;
   font-family: inherit;
   color: #1a1a1a;
   background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E") no-repeat right 4px center;
@@ -618,7 +618,7 @@
   .ready-to-talk-wrap { padding: 36px 0; }
   .rtt-left h2 { font-size: 22px; }
   .rtt-label { font-size: 17px; }
-  .rtt-select { font-size: 17px; }
+  .rtt-select { font-size: 15px; }
 
 
 }
