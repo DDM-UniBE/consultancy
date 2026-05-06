@@ -353,21 +353,7 @@
   color: #555;
   line-height: 1.6;
   letter-spacing: 0.005em;
-
-  /* Hidden at rest — shown on hover/focus */
-  max-height: 0;
-  opacity: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.3s ease;
-}
-.obj-card:hover .obj-body p,
-.obj-card:focus .obj-body p,
-.obj-card:focus-within .obj-body p {
-  max-height: 240px;
-  opacity: 1;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 .obj-link {
