@@ -66,45 +66,18 @@ if (matchReset) {
 /* Recommendation engine — returns 2-3 cards based on industry + need.
    Tweak the rules below to fit how DDM triages incoming requests. */
 
-// Catalogue of all available engagements
-// link: '#' is a placeholder — replace with services/<slug>.html when service pages are built
-const ENGAGEMENTS = {
-  ai_integration: {
-    title: 'AI integration in clinical workflows',
-    desc:  'End-to-end implementation of AI in clinical practice — needs assessment, vendor evaluation, pilot validation, clinician training and post-deployment monitoring.',
-    link:  '#'
-  },
-  expert_session: {
-    title: 'Expert consultation session',
-    desc:  'A lightweight, high-level advisory session with our clinicians, data scientists and digital medicine experts — ideal for strategic questions and independent academic opinion.',
-    link:  '#'
-  },
-  education: {
-    title: 'Education & briefings',
-    desc:  'Bespoke briefings and workshops with our faculty on the rapidly-evolving landscape of AI and digital health, tailored to your team and use cases.',
-    link:  '#'
-  },
-  convene: {
-    title: 'Convene & connect',
-    desc:  'Targeted introductions to clinicians and researchers across the University of Bern and Inselspital, designed to seed collaboration around your priorities.',
-    link:  '#'
-  },
-  research: {
-    title: 'Research partnership scoping',
-    desc:  'A structured scoping conversation to identify joint research opportunities — from collaborative grant applications to co-developed clinical studies.',
-    link:  '#'
-  },
-  regulatory: {
-    title: 'Clinical, regulatory & ethical advisory',
-    desc:  'Independent guidance navigating clinical evidence requirements, regulatory pathways (CE / FDA) and ethical considerations specific to digital health products.',
-    link:  '#'
-  },
-  startup_diagnostic: {
-    title: 'Start-up diagnostic',
-    desc:  'A focused early-stage assessment for digital health start-ups — product/market fit, clinical validation roadmap, and engagement priorities with our faculty.',
-    link:  '#'
-  }
-};
+// Catalogue of all available engagements — loaded from js/services.json
+// Each entry has title, desc, link, pillars[], specialty, status
+let ENGAGEMENTS = {};
+let engagementsLoaded = false;
+
+fetch('js/services.json')
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(data => { ENGAGEMENTS = data; engagementsLoaded = true; })
+  .catch(err => {
+    console.error('Failed to load services.json:', err);
+    engagementsLoaded = true;
+  });
 
 // Rule table: pick top 3 engagements per (industry, need) combination
 function recommendCards(ind, need) {

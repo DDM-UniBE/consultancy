@@ -1,0 +1,353 @@
+/* ═══════════════════════════════════════════════════
+   PILLAR OVERVIEW PAGES — shared across all pillar pages
+
+   Sections (top to bottom):
+     1. Pillar intro hero (white)
+     2. What we offer (white) — real specialty-led engagements
+     3. Choose your format (cream) — generic delivery formats
+     4. Our consultants (white) — Bain-style team grid
+     5. How we work (cream) — process steps
+   ═══════════════════════════════════════════════════ */
+
+
+/* ── 1. PILLAR INTRO ── */
+.pillar-intro {
+  background: white;
+  padding: 48px 0 56px;
+  border-bottom: 1px solid #ebebe8;
+}
+.pillar-intro-block {
+  max-width: 820px;
+  padding: 0 4px;
+}
+.pillar-back {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: color 0.15s;
+}
+.pillar-back:hover { color: #C8102E; }
+.pillar-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #C8102E;
+  margin-bottom: 18px;
+}
+.pillar-title {
+  font-size: 40px;
+  font-weight: 300;
+  color: #1a1a1a;
+  line-height: 1.2;
+  letter-spacing: 0.005em;
+  margin-bottom: 22px;
+}
+.pillar-lead {
+  font-size: 19px;
+  color: #444;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+}
+
+
+/* ── Section heads (shared) ── */
+.pillar-section-title {
+  font-size: 28px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: 0.005em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.pillar-section-lead {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+
+/* ── 2. WHAT WE OFFER (white bg, real engagements, no link) ── */
+.pillar-services {
+  background: white;
+  padding: 64px 0 64px;
+}
+.pillar-services-head {
+  margin-bottom: 40px;
+  padding: 0 4px;
+}
+.pillar-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 0 4px;
+}
+.pillar-svc-card {
+  background: white;
+  border: 1px solid #e0dfdb;
+  padding: 32px 32px 30px;
+  display: flex;
+  flex-direction: column;
+}
+.pillar-svc-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background: #C8102E;
+  color: white;
+  margin-bottom: 22px;
+}
+.pillar-svc-tag-soon {
+  background: white;
+  color: #888;
+  border: 1px solid #d8d8d4;
+}
+.pillar-svc-card h4 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 14px;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.pillar-svc-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.pillar-svc-meta {
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  letter-spacing: 0.005em;
+  font-style: italic;
+}
+
+
+/* ── 3. CHOOSE YOUR FORMAT (cream bg, no clickable cards) ── */
+.pillar-formats {
+  background: #f5f5f3;
+  padding: 64px 0 72px;
+  border-top: 1px solid #ebebe8;
+  border-bottom: 1px solid #ebebe8;
+}
+.pillar-formats-head {
+  margin-bottom: 40px;
+  padding: 0 4px;
+}
+.pillar-formats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  padding: 0 4px;
+}
+.pillar-format-card {
+  background: white;
+  border: 1px solid #e0dfdb;
+  padding: 26px 24px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.pillar-format-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.pillar-format-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+.pillar-format-meta {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 0.005em;
+  padding-top: 14px;
+  border-top: 1px solid #ebebe8;
+}
+
+
+/* ── 4. OUR CONSULTANTS (Bain-style: white bg, divider lines, no card border) ── */
+.pillar-consultants {
+  background: white;
+  padding: 64px 0 72px;
+}
+.pillar-consultants-head {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 0 4px;
+  position: relative;
+}
+.pillar-consultants-head::before,
+.pillar-consultants-head::after {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 1px;
+  background: #d8d8d4;
+  vertical-align: middle;
+  margin: 0 24px 6px;
+}
+.pillar-consultants-head .pillar-section-title {
+  display: inline-block;
+  vertical-align: middle;
+}
+.pillar-consultants-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 0 4px;
+}
+.consultant-card {
+  background: white;
+  text-align: left;
+  padding: 0 24px 8px;
+  border-right: 1px solid #ebebe8;
+}
+.consultant-card:last-child { border-right: 0; }
+.consultant-img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #ddd;
+  margin-bottom: 16px;
+}
+.consultant-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.consultant-body { padding: 0; }
+.consultant-card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+.consultant-title {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.consultant-org {
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.005em;
+}
+
+
+/* ── 5. HOW WE WORK (cream bg, white step tiles with red rule) ── */
+.pillar-process {
+  background: #f5f5f3;
+  padding: 64px 0 64px;
+  border-top: 1px solid #ebebe8;
+}
+.pillar-process-head {
+  margin-bottom: 40px;
+  padding: 0 4px;
+}
+.pillar-process-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  padding: 0 4px;
+}
+.pillar-process-steps li {
+  background: white;
+  border-top: 2px solid #C8102E;
+  padding: 22px 22px 24px;
+}
+.step-num {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #C8102E;
+  letter-spacing: 0.16em;
+  margin-bottom: 14px;
+}
+.pillar-process-steps h4 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  letter-spacing: -0.005em;
+}
+.pillar-process-steps p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.55;
+}
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .pillar-formats-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillar-consultants-grid { grid-template-columns: repeat(3, 1fr); }
+  .consultant-card:nth-child(3n) { border-right: 0; }
+  .consultant-card:nth-child(n+4) {
+    border-top: 1px solid #ebebe8;
+    padding-top: 28px;
+    margin-top: 28px;
+  }
+}
+@media (max-width: 900px) {
+  .pillar-intro { padding: 36px 0 40px; }
+  .pillar-title { font-size: 28px; }
+  .pillar-lead { font-size: 16px; }
+  .pillar-section-title { font-size: 22px; }
+  .pillar-services { padding: 48px 0 48px; }
+  .pillar-services-grid { grid-template-columns: 1fr; gap: 16px; }
+  .pillar-svc-card { padding: 26px 24px 24px; }
+  .pillar-svc-card h4 { font-size: 20px; }
+  .pillar-formats { padding: 48px 0 56px; }
+  .pillar-formats-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .pillar-format-card { padding: 22px 20px 20px; }
+  .pillar-consultants { padding: 48px 0 56px; }
+  .pillar-consultants-head::before,
+  .pillar-consultants-head::after { width: 40px; margin: 0 12px 6px; }
+  .pillar-consultants-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
+  .consultant-card { border-right: 1px solid #ebebe8; padding: 0 20px 8px; }
+  .consultant-card:nth-child(2n) { border-right: 0; }
+  .consultant-card:nth-child(n+3) { border-top: 0; padding-top: 0; margin-top: 0; }
+  .pillar-process { padding: 48px 0; }
+  .pillar-process-steps { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
+@media (max-width: 540px) {
+  .pillar-intro { padding: 28px 0 32px; }
+  .pillar-title { font-size: 24px; }
+  .pillar-lead { font-size: 15px; }
+  .pillar-services { padding: 36px 0; }
+  .pillar-svc-card h4 { font-size: 18px; }
+  .pillar-svc-card p { font-size: 14px; }
+  .pillar-formats { padding: 36px 0 44px; }
+  .pillar-formats-grid { grid-template-columns: 1fr; }
+  .pillar-consultants { padding: 36px 0 44px; }
+  .pillar-consultants-head::before,
+  .pillar-consultants-head::after { display: none; }
+  .pillar-consultants-grid { grid-template-columns: 1fr; gap: 28px; }
+  .consultant-card { border-right: 0; padding: 0 4px 8px; }
+  .consultant-img { aspect-ratio: 5 / 3; }
+  .pillar-process-steps { grid-template-columns: 1fr; }
+}
