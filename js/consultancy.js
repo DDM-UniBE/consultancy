@@ -2,10 +2,10 @@
    DDM Consultancy Service — Page Logic
 
    Modules:
-     1. Matchmaker   — two-question wizard with rule-based result
-     2. Mobile UI    — breadcrumb + slide-up menu (from template)
-     3. Browse bar   — dropdown for all consultancy services
-     4. RTT form     — opens mailto on submit
+     1. Matchmaker        — two-question wizard with rule-based result
+     2. Mobile UI         — breadcrumb + slide-up menu (from template)
+     3. Pillars carousel  — prev/next arrows (mobile only)
+     4. RTT form          — opens mailto on submit
    ═══════════════════════════════════════════════════ */
 
 
@@ -152,7 +152,7 @@ function computeMatchResult() {
     <article class="match-result-card">
       <h3>${c.title}</h3>
       <p>${c.desc}</p>
-      <a href="${c.link}" class="match-result-link">Read more &rsaquo;</a>
+      <a href="${c.link}" class="match-result-link">Find out more &rsaquo;</a>
     </article>
   `).join('');
 }
@@ -197,20 +197,59 @@ if (mobileMenuOverlay) {
 
 
 /* ─────────────────────────────────────────────
-   3. BROWSE BAR — dropdown for all services
-   When a specialty is picked, navigate to its page.
-   For now slugs are placeholders (services/<slug>.html).
+   3. PILLARS CAROUSEL (mobile only) — prev/next arrows
+   Uses the same eased rAF animation as other carousels.
    ───────────────────────────────────────────── */
 (function () {
-  const sel = document.getElementById('browseSelect');
-  if (!sel) return;
-  sel.addEventListener('change', () => {
-    const slug = sel.value;
-    if (!slug) return;
-    // TODO: when service pages exist, point this at services/<slug>.html
-    // For now, no-op so users see the selection but stay on the page.
-    console.log('Browse selected:', slug);
-  });
+  const track = document.querySelector('.objectives-grid');
+  if (!track) return;
+  const prev  = document.getElementById('objPrev');
+  const next  = document.getElementById('objNext');
+
+  function step() {
+    const first = track.firstElementChild;
+    if (!first) return 0;
+    return first.getBoundingClientRect().width + 14;  /* card width + gap */
+  }
+  function update() {
+    if (!prev || !next) return;
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  }
+
+  let animating = false;
+  function animateScroll(targetLeft, duration) {
+    if (animating) return;
+    animating = true;
+    const start = track.scrollLeft;
+    const distance = targetLeft - start;
+    const startTime = performance.now();
+    const prevSnap = track.style.scrollSnapType;
+    track.style.scrollSnapType = 'none';
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+    function tick(now) {
+      const elapsed = now - startTime;
+      const t = Math.min(elapsed / duration, 1);
+      track.scrollLeft = start + distance * easeOutCubic(t);
+      if (t < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        track.style.scrollSnapType = prevSnap || '';
+        animating = false;
+        update();
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  function clamp(v) {
+    return Math.max(0, Math.min(v, track.scrollWidth - track.clientWidth));
+  }
+
+  if (prev) prev.addEventListener('click', () => animateScroll(clamp(track.scrollLeft - step()), 500));
+  if (next) next.addEventListener('click', () => animateScroll(clamp(track.scrollLeft + step()), 500));
+  track.addEventListener('scroll', update);
+  window.addEventListener('resize', update);
+  update();
 })();
 
 
