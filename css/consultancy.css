@@ -58,7 +58,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 25%;
   display: block;
 }
 
@@ -371,6 +371,9 @@
   text-decoration: underline;
 }
 
+/* Hidden on desktop — only shown on mobile carousel */
+.objectives-nav { display: none; }
+
 
 /* ═══════════════════════════════════════════════════
    WHAT TO EXPECT — lightweight entry point block
@@ -552,7 +555,7 @@
   .intro-wrap { padding: 32px 0 32px; }
   .intro-title { font-size: 22px; }
   .intro-lead { font-size: 15px; }
-  .matcher-section { padding-bottom: 36px; }
+  .matcher-section { padding-bottom: 20px; }
   .matcher-image { height: 200px; }
   .matcher-content { padding: 28px 20px; }
   .matcher-title { font-size: 20px; }
@@ -564,7 +567,7 @@
   .match-result-card { min-height: 0; padding: 24px 22px; }
   .match-result-card h3 { font-size: 19px; }
   .objectives-section { padding: 0 0 24px; }
-  .objectives-band { padding: 32px 0 40px; }   /* zero horizontal padding so carousel can bleed */
+  .objectives-band { padding: 16px 0 40px; }   /* zero horizontal padding so carousel can bleed */
   .objectives-band > .objectives-head {
     padding: 0 22px;
   }
@@ -598,18 +601,39 @@
   .obj-body h3 { font-size: 20px; margin-bottom: 14px; }
   .obj-body p { font-size: 14px; margin-bottom: 20px; }
 
-  /* Hint to indicate horizontal scrolling — small dots / arrow */
-  .objectives-band::after {
-    content: "Swipe to explore →";
-    display: block;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+  /* Mobile carousel arrows: square buttons centered below cards */
+  .objectives-nav {
+    display: flex !important;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 0 22px;
+  }
+  .objectives-arrow {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border: 1px solid #d8d8d4;
+    font-size: 18px;
+    color: #1a1a1a;
+    cursor: pointer;
+    font-family: inherit;
+    display: grid;
+    place-items: center;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+  .objectives-arrow:hover {
+    border-color: #C8102E;
     color: #C8102E;
-    margin-top: 12px;
-    opacity: 0.7;
+  }
+  .objectives-arrow:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .objectives-arrow:disabled:hover {
+    background: white;
+    color: #1a1a1a;
+    border-color: #d8d8d4;
   }
 
   .expect-section { padding: 48px 0 56px; }
